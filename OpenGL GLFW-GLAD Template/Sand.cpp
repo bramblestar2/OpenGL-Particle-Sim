@@ -3,7 +3,7 @@
 
 Sand::Sand(Vec2f _Size, Vec2i _Position) : Cell((int)CellType::SAND)
 {
-	Cell::setColor(Vec3f(1.00, 0.87, 0.20));
+	Cell::setColor(Vec4f(1.00, 0.87, 0.20, 1.00));
 	Cell::setSize(_Size);
 	Cell::setCellPosition(_Position);
 }

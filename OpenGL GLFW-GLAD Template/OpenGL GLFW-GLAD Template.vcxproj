@@ -171,6 +171,7 @@
     <ClInclude Include="Essentials\Mouse\Mouse.h" />
     <ClInclude Include="Essentials\Vec2\Vec2.h" />
     <ClInclude Include="Essentials\Vec3\Vec3.h" />
+    <ClInclude Include="Essentials\Vec4\Vec4.h" />
     <ClInclude Include="Events\EventHandler.h" />
     <ClInclude Include="Events\Events.h" />
     <ClInclude Include="Sand.h" />

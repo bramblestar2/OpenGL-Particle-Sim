@@ -7,6 +7,8 @@
 Cell::Cell(int _ID)
 {
 	setID(_ID);
+	setCellPosition(Vec2i());
+	setColor(Vec4f(0,0,0,0));
 }
 
 int Cell::getID() const
@@ -14,7 +16,7 @@ int Cell::getID() const
 	return id;
 }
 
-Vec3f Cell::getColor() const
+Vec4f Cell::getColor() const
 {
 	return color;
 }
@@ -47,7 +49,7 @@ void Cell::render()
 	float bottom = top + size.y;
 
 	glBegin(GL_QUADS);
-	glColor3f(color.x, color.y, color.z);
+	glColor4f(color.x, color.y, color.z, color.a);
 	glNormal3d(0,0,1);
 	glVertex2f(left, top);
 	glNormal3d(0,0,1);
@@ -59,12 +61,16 @@ void Cell::render()
 	glEnd();
 }
 
+void Cell::update(Cell*** _Grid, Vec2i _Max_Size)
+{
+}
+
 void Cell::setID(int _ID)
 {
 	id = _ID;
 }
 
-void Cell::setColor(Vec3f _Color)
+void Cell::setColor(Vec4f _Color)
 {
 	color = _Color;
 }
