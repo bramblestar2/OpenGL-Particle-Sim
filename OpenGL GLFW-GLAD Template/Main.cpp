@@ -5,6 +5,8 @@
 #include "Essentials/Mouse/Mouse.h"
 #include "View/View.h"
 
+#include "Sand.h"
+
 int main()
 {
     Window2D window(300, 300, "Window");
@@ -15,6 +17,9 @@ int main()
 
     View v1(Vec2f(300,300));
     window.setView(&v1);
+
+    Sand a;
+    a.setSize({ 10,10 });
 
     while (window.isOpen())
     {
@@ -37,20 +42,8 @@ int main()
             }
         }
 
-        window.clear(0,0,0,0);
-
-        float xpos, ypos;
-        xpos = sin(glfwGetTime());
-        ypos = cos(glfwGetTime());
-
-        glBegin(GL_QUADS);
-        glColor3d(abs(xpos) / 1.f, abs(ypos) / 1.f, abs(xpos + ypos) / 1.f);
-        glVertex2f(100 + (xpos * 100), 100 + (ypos * 100));
-        glVertex2f(100 + (xpos * 100), 200 + (ypos * 100));
-        glVertex2f(200 + (xpos * 100), 200 + (ypos * 100));
-        glVertex2f(200 + (xpos * 100), 100 + (ypos * 100));
-        glEnd();
-
+        window.clear();
+        a.render();
         window.display();
     }
 

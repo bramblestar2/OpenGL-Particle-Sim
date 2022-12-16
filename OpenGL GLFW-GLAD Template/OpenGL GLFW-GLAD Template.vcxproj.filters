@@ -66,6 +66,12 @@
     <ClCompile Include="View\View.cpp">
       <Filter>Source Files\Essentials</Filter>
     </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Events\EventHandler.h">
@@ -94,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="View\View.h">
       <Filter>Header Files\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sand.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
