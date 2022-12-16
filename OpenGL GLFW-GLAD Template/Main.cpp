@@ -20,6 +20,7 @@ int main()
 
     Sand a;
     a.setSize({ 10,10 });
+    a.setCellPosition({ 1,0 });
 
     while (window.isOpen())
     {
@@ -42,7 +43,7 @@ int main()
             }
         }
 
-        window.clear();
+        window.clear(20,20,20);
         a.render();
         window.display();
     }

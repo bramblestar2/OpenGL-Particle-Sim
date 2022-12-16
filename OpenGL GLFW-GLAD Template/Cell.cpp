@@ -24,9 +24,14 @@ void Cell::setSize(Vec2f _Size)
 	size = _Size;
 }
 
-void Cell::setCellPosition(Vec2f _Position)
+void Cell::setCellPosition(Vec2i _Position)
 {
 	cellPosition = _Position;
+}
+
+Vec2i Cell::getCellPosition() const
+{
+	return cellPosition;
 }
 
 Vec2f Cell::getSize() const
@@ -43,9 +48,13 @@ void Cell::render()
 
 	glBegin(GL_QUADS);
 	glColor3f(color.x, color.y, color.z);
+	glNormal3d(0,0,1);
 	glVertex2f(left, top);
+	glNormal3d(0,0,1);
 	glVertex2f(right, top);
+	glNormal3d(0,0,1);
 	glVertex2f(right, bottom);
+	glNormal3d(0,0,1);
 	glVertex2f(left, bottom);
 	glEnd();
 }
@@ -58,4 +67,9 @@ void Cell::setID(int _ID)
 void Cell::setColor(Vec3f _Color)
 {
 	color = _Color;
+}
+
+void Cell::deallocateMem(Cell*** _Grid, int _X, int _Y)
+{
+	delete _Grid[_X][_Y];
 }

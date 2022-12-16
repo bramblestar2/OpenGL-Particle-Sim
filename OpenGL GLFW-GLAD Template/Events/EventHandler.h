@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <GL/glew.h>
 #include <vector>
+#include <string>
 
 enum class EventTypes
 {
@@ -74,7 +75,7 @@ protected:
 	struct Drop
 	{
 		int count;
-		const char** paths;
+		std::string* paths;
 	};
 
 	//Window events
@@ -159,10 +160,28 @@ protected:
 /// Simple event handling
 /// 
 public:
+	~EventHandler()
+	{
+		if (topEventType == EventTypes::Drop)
+			if (topEvent.drop.paths != nullptr)
+				delete[] topEvent.drop.paths;
+
+		for (int i = 0; i < eventList.size(); i++)
+		{
+			if (eventTypeList.at(i) == EventTypes::Drop)
+				if (eventList.at(i).drop.paths != nullptr)
+					delete[] topEvent.drop.paths;
+		}
+	}
+
 	void pop_event() 
 	{ 
 		if (!isEmpty())
 		{
+			if (topEventType == EventTypes::Drop)
+				if (topEvent.drop.paths != nullptr)
+					delete[] topEvent.drop.paths;
+
 			topEvent = eventList.at(eventList.size() - 1);
 			topEventType = eventTypeList.at(eventTypeList.size() - 1);
 			eventTypeList.pop_back();
